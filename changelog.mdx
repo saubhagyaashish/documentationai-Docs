@@ -1,0 +1,139 @@
+---
+title: Changelog
+description: Track the latest updates and improvements to Saubhagya Ashish, including recent version releases.
+---
+
+## Recent Updates
+
+Stay informed about the latest enhancements, bug fixes, and improvements in Saubhagya Ashish. You can check your current version in the dashboard under Settings > About.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for shared documentation spaces, allowing multiple users to edit simultaneously.
+- Introduced custom themes with support for your brand color `{`#3B82F6`}` and CSS variables.
+
+## Improvements
+
+- Enhanced search functionality with fuzzy matching and full-text indexing for faster results.
+- Optimized performance for large documentation sites, reducing load times by up to 40%.
+
+## Bug Fixes
+
+- Fixed rendering issues with nested code blocks in MDX components.
+- Resolved authentication token refresh problems during long sessions.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated Mermaid diagram support directly in MDX without requiring JSX wrappers.
+- Added export options for PDF and Markdown from any documentation page.
+
+## Bug Fixes
+
+- Corrected parsing errors when using special characters like `{` and `}` in prose.
+- Fixed mobile responsiveness for Tables and Columns components.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## Initial Release
+
+- Core MDX documentation engine with full component support including Steps, Tabs, and Callouts.
+- Built-in preview mode for editing pages with live syntax checking.
+- Basic authentication and project organization features.
+
+## Breaking Changes
+
+- Updated default frontmatter parsing to require strict YAML format without blank lines.
+
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade Saubhagya Ashish to the latest version.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+    Create a full backup of your documentation spaces.
+
+    ```bash
+    saubhagya-backup --project=all --output=./backups
+    ```
+
+  </Step>
+  <Step title="Update CLI" icon="download">
+
+    <CodeGroup tabs="npm,yarn">
+    ````bash
+    npm install -g @saubhagya/cli@latest
+    ````
+    ````bash
+    yarn global add @saubhagya/cli@latest
+    ````
+    </CodeGroup>
+
+  </Step>
+  <Step title="Run Migration" icon="settings">
+
+    Execute the migration script for your version.
+
+    ```bash
+    saubhagya-migrate --from=v1.1.0 --to=v1.2.0
+    ```
+
+  </Step>
+  <Step title="Verify" icon="check-circle">
+
+    Test your pages and check the logs for any issues.
+
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Always test upgrades in a staging environment first. Review the migration notes in each `{Update}` component above for version-specific changes.
+</Callout>
+
+## Upcoming Changes
+
+Preview what's coming in v1.3.0 and beyond. These features focus on advanced integrations and AI-assisted documentation.
+
+<Columns cols={2}>
+  <Card title="AI Content Generation" icon="sparkles" horizontal>
+    Generate documentation drafts using natural language prompts.
+  </Card>
+  <Card title="Webhook Integrations" icon="zap" horizontal>
+    Trigger builds and updates via webhooks from your CI/CD pipeline.
+  </Card>
+</Columns>
+
+## Before and After Example
+
+Here's a code example showing an improved component usage from v1.1.0 to v1.2.0:
+
+<Tabs>
+  <Tab title="v1.1.0 (Deprecated)" icon="alert-triangle">
+````jsx
+<Callout kind='info'>
+  Note: Single quotes cause parsing errors.
+</Callout>
+````
+  </Tab>
+  <Tab title="v1.2.0 (Recommended)" icon="check-circle">
+````jsx
+<Callout kind="info">
+  Use double quotes for all string attributes.
+</Callout>
+````
+  </Tab>
+</Tabs>
+
+<Callout kind="info">
+  Subscribe to updates via the dashboard to get notified of new releases. For custom builds, check the [GitHub repository](https://github.com/saubhagya-ashish/docs).
+</Callout>

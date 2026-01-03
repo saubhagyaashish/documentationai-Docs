@@ -1,0 +1,129 @@
+---
+title: Core Features of Saubhagya Ashish
+description: Explore the essential tools and capabilities for managing and collaborating on project documentation.
+---
+
+## Overview
+
+Saubhagya Ashish provides powerful tools to streamline your documentation workflow. You organize content into folders, track changes with version control, collaborate seamlessly, and find information quickly using search and tags. These features ensure your project docs stay structured and accessible.
+
+<Columns cols={2}>
+  <Card title="Document Folders" icon="folder" href="#document-organization">
+    Create nested folders to categorize your docs logically.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#version-control">
+    Track changes and revert to previous versions easily.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Share docs with teams and manage permissions.
+  </Card>
+  <Card title="Search & Tags" icon="search" href="#search-tagging">
+    Locate content fast with full-text search and custom tags.
+  </Card>
+</Columns>
+
+## Document Organization and Folders
+
+You structure your documentation using intuitive folders. Create root-level folders for major sections like "API", "Guides", or "Tutorials". Nest subfolders for deeper organization, such as "API/{version}/endpoints".
+
+<Steps>
+  <Step title="Create a Folder" icon="folder-plus">
+    Navigate to your workspace root. Click the `+` button and select "New Folder". Enter a name like "User Guide".
+  </Step>
+  <Step title="Nest Folders" icon="folder">
+    Inside a folder, repeat the process to add subfolders. Drag and drop to reorder.
+  </Step>
+  <Step title="Move Documents" icon="move">
+    Select docs and use the move tool to place them in the right folder.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use consistent naming conventions like "v1.0-api" for folders to maintain clarity across teams.
+</Callout>
+
+## Version Control for Docs
+
+Saubhagya Ashish integrates version control directly into your docs. Every edit creates a new version. You view diffs, restore previous states, or branch for experiments.
+
+```javascript
+// Example: Fetch document history via API
+const response = await fetch('https://api.example.com/docs/my-guide/history', {
+  headers: { Authorization: `Bearer ${YOUR_API_KEY}` }
+});
+const versions = await response.json();
+console.log(versions); // Array of { id, date, changes }
+```
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Revert to version
+await fetch('https://api.example.com/docs/my-guide/revert/abc123', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' }
+});
+```
+```python
+import requests
+response = requests.post(
+  'https://api.example.com/docs/my-guide/revert/abc123',
+  headers={'Authorization': f'Bearer {YOUR_API_KEY}'}
+)
+```
+</CodeGroup>
+
+## Collaboration and Sharing Options
+
+Invite team members to collaborate in real-time. Set permissions like view-only, edit, or admin. Generate shareable links with expiration dates.
+
+<Tabs>
+  <Tab title="Team Invite" icon="users">
+    Go to workspace settings. Add emails and assign roles.
+  </Tab>
+  <Tab title="Public Link" icon="link">
+    Select a doc, click "Share", and copy the public URL. Toggle edit access.
+  </Tab>
+  <Tab title="Permissions" icon="shield">
+    Use granular controls: read, write, or comment-only.
+  </Tab>
+</Tabs>
+
+## Search and Tagging Functionality
+
+Search across all docs with full-text indexing. Add tags like "api", "beta", or "deprecated" for quick filtering.
+
+<ParamField query="q" param-type="string" required="true">
+  Your search query, e.g., "authentication endpoint".
+</ParamField>
+
+<ParamField query="tags" param-type="array" required="false">
+  Filter by tags, e.g., `["api", "v2"]`.
+</ParamField>
+
+```javascript highlight="2-4"
+const search = async (query, tags = []) => {
+  const params = new URLSearchParams({ q: query });
+  if (tags.length) params.append('tags', tags.join(','));
+  
+  const response = await fetch(`https://api.example.com/search?${params}`);
+  return response.json();
+};
+```
+
+<Expandable title="Advanced Tagging Tips" default-open="false">
+
+Create a tagging strategy upfront:
+
+| Tag Category | Examples              | Use Case                  |
+|--------------|-----------------------|---------------------------|
+| Status       | `draft`, `published`  | Workflow stages           |
+| Topic        | `api`, `ui`, `deploy` | Content filtering         |
+| Version      | `v1`, `v2-beta`       | Legacy management         |
+
+Apply tags via the editor sidebar. Search combines tags with keywords for precise results.
+
+</Expandable>
+
+<Callout kind="success">
+  Start tagging early to unlock powerful search capabilities as your docs grow.
+</Callout>

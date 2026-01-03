@@ -1,0 +1,145 @@
+---
+title: Welcome to Saubhagya Ashish
+description: Discover Saubhagya Ashish, your default documentation space for organizing and managing project documentation with ease and efficiency.
+---
+
+## Overview
+
+Saubhagya Ashish provides a centralized hub for your project documentation. You can create, organize, and manage all your docs in one intuitive space. Streamline collaboration and ensure your team always accesses the latest information.
+
+<Callout kind="info">
+  Primary brand color: `#3B82F6`. Use this hex code for consistent branding across your documentation.
+</Callout>
+
+## Key Features
+
+Explore the core capabilities that make Saubhagya Ashish your go-to documentation platform.
+
+<Columns cols={3}>
+  <Card title="Organized Structure" icon="layers" href="#navigation">
+    Build hierarchical docs with folders, pages, and search. Keep everything structured and discoverable.
+  </Card>
+  <Card title="Real-Time Collaboration" icon="users" href="/quickstart">
+    Edit docs together with your team. Changes sync instantly for seamless workflows.
+  </Card>
+  <Card title="Customizable Themes" icon="palette" href="#brand-guidelines">
+    Tailor your docs with custom colors like `#3B82F6` and layouts to match your brand.
+  </Card>
+</Columns>
+
+## Quick Start
+
+Get up and running in minutes. Follow these steps to create your first documentation space.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit `https://dashboard.example.com` and create your account using your email.
+  </Step>
+  <Step title="Create Space" icon="plus">
+    Click "New Space" and name it "Saubhagya Ashish". Select your brand color `#3B82F6`.
+  </Step>
+  <Step title="Add First Page" icon="file-plus">
+    Create a new MDX page. Use the editor to add content.
+
+````mdx
+# My First Doc
+Welcome to your project!
+````
+
+  </Step>
+  <Step title="Publish" icon="globe">
+    Hit publish. Share the link: `https://docs.example.com/saubhagya-ashish/introduction`.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Embed docs widget in your app
+const widget = document.createElement('iframe');
+widget.src = 'https://docs.example.com/saubhagya-ashish/embed';
+widget.width = '100%';
+widget.height = '600';
+document.body.appendChild(widget);
+```
+
+```python
+# Fetch latest docs via API
+import requests
+
+response = requests.get(
+  'https://api.example.com/docs/saubhagya-ashish',
+  headers={'Authorization': 'Bearer YOUR_API_KEY'}
+)
+print(response.json())
+```
+</CodeGroup>
+
+## Quick Navigation
+
+Jump to essential sections to dive deeper.
+
+<Columns cols={2}>
+  <Card title="Quickstart Guide" icon="zap" href="/quickstart">
+    Set up your first project in under 5 minutes.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your docs with API keys and tokens.
+  </Card>
+  <Card title="Configuration" icon="settings" href="/configuration">
+    Customize themes and layouts.
+  </Card>
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated with the latest releases.
+  </Card>
+</Columns>
+
+## Brand Guidelines
+
+Maintain consistency with these guidelines.
+
+Use the primary color `#3B82F6` for headers, buttons, and accents. Pair it with neutral grays for text.
+
+<Tabs>
+  <Tab title="CSS Usage" icon="code">
+    Apply the brand color in your custom CSS:
+
+````css
+:root {
+  --brand-primary: #3B82F6;
+}
+
+.header {
+  background-color: var(--brand-primary);
+  color: white;
+}
+````
+
+  </Tab>
+  <Tab title="Component Props" icon="settings">
+    Pass the color to themed components:
+
+````jsx
+<Button color="#3B82F6" variant="primary">
+  Get Started
+</Button>
+````
+
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Theming" default-open="false">
+  For full theming, override the theme object:
+
+````json
+{
+  "colors": {
+    "primary": "#3B82F6"
+  }
+}
+````
+
+</Expandable>
+
+<Callout kind="tip">
+  Ready to build? Head to the [Quickstart](/quickstart) for hands-on setup.
+</Callout>
